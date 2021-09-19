@@ -19,7 +19,6 @@ document.querySelectorAll('.rotation-manager-slot').forEach(function(a) {
 });
 document.querySelector(".content").style.display = 'none';
 document.querySelector("#sidebar").style.width = '100vw';
-document.querySelector("#messageView").style.width = '100vw';
 document.querySelector(".content").style.width = '100vw';
 document.querySelector(".content").style.height = '100vh';
 
@@ -35,8 +34,11 @@ setTimeout(function() {
 
     function hidesidebar() {
         document.querySelector("#sidebar").style.display = 'none';
-        document.querySelector("#chatViewFooter").style.width = '100vw';
+        
         document.querySelector(".profile-toolbar").style.width = '100vw';
+        document.querySelector("#messageView").style.width = '100vw';
+        document.querySelector("#chatViewFooter").style.width = '100vw';
+        
         document.querySelector(".content").style.display = 'flex';
         document.querySelector('.conversation-title').onclick = showsidebar;
         document.querySelector('.js-conversation-title').onclick = showsidebar;
