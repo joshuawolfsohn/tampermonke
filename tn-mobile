@@ -1,0 +1,50 @@
+// ==UserScript==
+// @name         TextNow Desktop for Mobile
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Render TextNow desktop web client for mobile nicely
+// @author       You
+// @match        https://www.textnow.com/messaging
+// @icon         https://www.google.com/s2/favicons?domain=textnow.com
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+document.querySelector("#bannerContainer").remove();
+document.querySelector("#sidebarNavContainer").remove();
+document.querySelectorAll('.rotation-manager-slot').forEach(function(a) {
+        a.remove();
+});
+document.querySelector(".content").style.display = 'none';
+document.querySelector("#sidebar").style.width = '100vw';
+document.querySelector(".content").style.width = '100vw';
+document.querySelector(".content").style.height = '100vh';
+
+document.querySelector("#chatContainer").style.position = 'fixed';
+document.querySelector("#viewport").setAttribute("content", "width=device-width,user-scalable=no,initial-scale=1.0");
+
+//window.addEventListener('load', function() {
+setTimeout(function() {
+    function showsidebar() {
+        document.querySelector(".content").style.display = 'none';
+        document.querySelector("#sidebar").style.display = 'flex';
+    }
+
+    function hidesidebar() {
+        document.querySelector("#sidebar").style.display = 'none';
+        document.querySelector(".content").style.display = 'flex';
+        document.querySelector('.conversation-title').onclick = showsidebar;
+        document.querySelector('.js-conversation-title').onclick = showsidebar;
+    }
+
+    var convos = document.querySelectorAll('.uikit-summary-list__cell');
+    for (var convo of convos) {
+        convo.onclick = hidesidebar;
+    };
+
+    document.querySelector(".js-newText").onclick = hidesidebar;
+},5000);
+
+})();
