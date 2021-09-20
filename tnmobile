@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TextNow Desktop for Mobile
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Render TextNow desktop web client for mobile nicely
 // @author       You
 // @match        https://www.textnow.com/messaging
@@ -17,6 +17,7 @@ document.querySelector("#sidebarNavContainer").remove();
 document.querySelectorAll('.rotation-manager-slot').forEach(function(a) {
         a.remove();
 });
+
 document.querySelector(".content").style.display = 'none';
 document.querySelector("#viewport").setAttribute("content", "width=device-width,user-scalable=no,initial-scale=1.0");
 
@@ -31,16 +32,21 @@ setTimeout(function() {
         document.querySelector(".content").style.display = 'flex';
     }
     
+    function refreshnav() {
+        var convos = document.querySelectorAll('.uikit-summary-list__cell');
+        for (var convo of convos) {
+            convo.onclick = hidesidebar;
+        };
+        document.querySelector(".js-newText").onclick = hidesidebar;
+        document.querySelector('.conversation-title').onclick = showsidebar;
+        document.querySelector('.js-conversation-title').onclick = showsidebar;
+    }
+    
     showsidebar();
+    refreshnav();
     
     setInterval(function() {
-    var convos = document.querySelectorAll('.uikit-summary-list__cell');
-    for (var convo of convos) {
-        convo.onclick = hidesidebar;
-    };
-    document.querySelector(".js-newText").onclick = hidesidebar;
-    document.querySelector('.conversation-title').onclick = showsidebar;
-    document.querySelector('.js-conversation-title').onclick = showsidebar;
+        refreshnav();
     },30000);
 
 },5000);
