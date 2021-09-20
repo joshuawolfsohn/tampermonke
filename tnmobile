@@ -31,8 +31,9 @@ setTimeout(function() {
         document.querySelector(".content").style.display = 'flex';
     }
     
-    setInterval(function() {
     showsidebar();
+    
+    setInterval(function() {
     var convos = document.querySelectorAll('.uikit-summary-list__cell');
     for (var convo of convos) {
         convo.onclick = hidesidebar;
@@ -40,7 +41,7 @@ setTimeout(function() {
     document.querySelector(".js-newText").onclick = hidesidebar;
     document.querySelector('.conversation-title').onclick = showsidebar;
     document.querySelector('.js-conversation-title').onclick = showsidebar;
-    },15000);
+    },30000);
 
 },5000);
 
