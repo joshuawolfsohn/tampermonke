@@ -43,6 +43,17 @@ setTimeout(function() {
     document.querySelector(".js-newText").onclick = hidesidebar;
 },5000);
 
-document.head.innerHTML += "<style>.buttons-container { justify-content:unset !important; } .new-dialog-container { min-width:unset !important; } #chatContainer { position:fixed !important; } #sidebar { width:100vw !important; } .content { width:100vw !important; height:100vh !important; } .incall-view { width:100vw !important; } .profile-toolbar { width:100vw !important; } #messageView { width:100vw !important; } #chatViewFooter { width:100vw !important; }</style>";
+document.head.innerHTML += "<style>" +
+".buttons-container { justify-content:unset !important; }" +
+".new-dialog-container { min-width:unset !important; }" +
+"#chatContainer { position:fixed !important; }" +
+"#sidebar { width:100vw !important; }" +
+".content { width:100vw !important; height:100vh !important; }" +
+".incall-view { width:100vw !important; }" +
+".profile-toolbar { width:100vw !important; }" +
+"#messageView { width:100vw !important; }" +
+"#chatViewFooter { width:100vw !important; }" +
+"#start-video { display:none !important;}" +
+"</style>";
 
 })();
