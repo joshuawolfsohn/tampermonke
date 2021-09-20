@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TextNow Desktop for Mobile
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Render TextNow desktop web client for mobile nicely
 // @author       You
 // @match        https://www.textnow.com/messaging
@@ -20,28 +20,27 @@ document.querySelectorAll('.rotation-manager-slot').forEach(function(a) {
 document.querySelector(".content").style.display = 'none';
 document.querySelector("#viewport").setAttribute("content", "width=device-width,user-scalable=no,initial-scale=1.0");
 
-//window.addEventListener('load', function() {
 setTimeout(function() {
     function showsidebar() {
         document.querySelector(".content").style.display = 'none';
         document.querySelector("#sidebar").style.display = 'flex';
+        var convos = document.querySelectorAll('.uikit-summary-list__cell');
+        for (var convo of convos) {
+            convo.onclick = hidesidebar;
+        };
+        document.querySelector(".js-newText").onclick = hidesidebar;
     }
 
     function hidesidebar() {
         document.querySelector("#sidebar").style.display = 'none';
-               
         document.querySelector(".content").style.display = 'flex';
         document.querySelector('.conversation-title').onclick = showsidebar;
         document.querySelector('.js-conversation-title').onclick = showsidebar;
     }
+    
+    showsidebar();
 
-    var convos = document.querySelectorAll('.uikit-summary-list__cell');
-    for (var convo of convos) {
-        convo.onclick = hidesidebar;
-    };
-
-    document.querySelector(".js-newText").onclick = hidesidebar;
-},5000);
+},3000);
 
 document.head.innerHTML += "<style>" +
 ".buttons-container { justify-content:unset !important; }" +
