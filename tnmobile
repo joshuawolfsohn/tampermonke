@@ -25,11 +25,13 @@ setTimeout(function() {
     function showsidebar() {
         document.querySelector(".content").style.display = 'none';
         document.querySelector("#sidebar").style.display = 'flex';
+        refreshnav();
     }
 
     function hidesidebar() {
         document.querySelector("#sidebar").style.display = 'none';
         document.querySelector(".content").style.display = 'flex';
+        refreshnav();
     }
     
     function refreshnav() {
@@ -43,11 +45,10 @@ setTimeout(function() {
     }
     
     showsidebar();
-    refreshnav();
     
-    setInterval(function() {
+    /*setInterval(function() {
         refreshnav();
-    },30000);
+    },30000);*/
 
 },5000);
 
