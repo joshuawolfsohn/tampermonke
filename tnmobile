@@ -46,9 +46,9 @@ setTimeout(function() {
     
     showsidebar();
     
-    /*setInterval(function() {
+    setInterval(function() {
         refreshnav();
-    },30000);*/
+    },5000);
 
 },5000);
 
@@ -61,7 +61,7 @@ document.head.innerHTML += "<style>" +
 ".incall-view { width:100vw !important; }" +
 ".profile-toolbar { width:100vw !important; }" +
 "#messageView { width:100vw !important; }" +
-"#chatViewFooter { width:100vw !important; }" +
+"#chatViewFooter { width:100vw !important; position:absolute; top:0; }" +
 "#start-video { display:none !important;}" +
 "</style>";
 
