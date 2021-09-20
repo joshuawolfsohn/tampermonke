@@ -18,11 +18,6 @@ document.querySelectorAll('.rotation-manager-slot').forEach(function(a) {
         a.remove();
 });
 document.querySelector(".content").style.display = 'none';
-document.querySelector("#sidebar").style.width = '100vw';
-document.querySelector(".content").style.width = '100vw';
-document.querySelector(".content").style.height = '100vh';
-
-document.querySelector("#chatContainer").style.position = 'fixed';
 document.querySelector("#viewport").setAttribute("content", "width=device-width,user-scalable=no,initial-scale=1.0");
 
 //window.addEventListener('load', function() {
@@ -34,11 +29,7 @@ setTimeout(function() {
 
     function hidesidebar() {
         document.querySelector("#sidebar").style.display = 'none';
-        
-        document.querySelector(".profile-toolbar").style.width = '100vw';
-        document.querySelector("#messageView").style.width = '100vw';
-        document.querySelector("#chatViewFooter").style.width = '100vw';
-        
+               
         document.querySelector(".content").style.display = 'flex';
         document.querySelector('.conversation-title').onclick = showsidebar;
         document.querySelector('.js-conversation-title').onclick = showsidebar;
@@ -51,5 +42,7 @@ setTimeout(function() {
 
     document.querySelector(".js-newText").onclick = hidesidebar;
 },5000);
+
+document.head.innerHTML += "<style>.buttons-container { justify-content:unset !important; } .new-dialog-container { min-width:unset !important; } #chatContainer { position:fixed !important; } #sidebar { width:100vw !important; } .content { width:100vw !important; height:100vh !important; } .incall-view { width:100vw !important; } .profile-toolbar { width:100vw !important; } #messageView { width:100vw !important; } #chatViewFooter { width:100vw !important; }</style>";
 
 })();
